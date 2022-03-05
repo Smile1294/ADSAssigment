@@ -1,9 +1,7 @@
 package Calculator.Model;
 
 import Calculator.InterFaces.Stack;
-
 import java.util.EmptyStackException;
-import java.util.LinkedList;
 
 public class LinkedStack<T> implements Stack<T> {
     private LinkedList<T> list;
@@ -16,10 +14,10 @@ public class LinkedStack<T> implements Stack<T> {
     }
     @Override
     public void push(T elem) {
-        this.list.push(elem);
+        this.list.addToFront(elem);
     }
     @Override
     public T pop() throws EmptyStackException {
-        return this.list.pop();
+        return this.list.getNext();
     }
 }
