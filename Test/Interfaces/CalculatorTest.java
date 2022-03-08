@@ -28,7 +28,7 @@ class CalculatorTest {
     }
 
     @Test
-    void test1() {
+    void test1() throws MalformedException {
         list.add(new Operand(5));
         list.add(new Operand(3));
         list.add(new Operand(1));
@@ -39,7 +39,7 @@ class CalculatorTest {
     }
 
     @Test
-    void test2() {
+    void test2() throws MalformedException {
         list.add(new Operand(2));
         list.add(new Operand(4));
         list.add(new Operand(2));
@@ -52,7 +52,7 @@ class CalculatorTest {
     }
 
     @Test
-    void test3() {
+    void test3() throws MalformedException {
         list.add(new Operand(3));
         list.add(new Operand(7));
         list.add(new Operator(Operation.MULTIPLICATION));
@@ -63,7 +63,7 @@ class CalculatorTest {
     }
 
     @Test
-    void test4() {
+    void test4() throws MalformedException {
         list.add(new Operand(4));
         list.add(new Operand(7));
         list.add(new Operator(Operation.MULTIPLICATION));
@@ -74,7 +74,7 @@ class CalculatorTest {
     }
 
     @Test
-    void test5() {
+    void test5() throws MalformedException {
         list.add(new Operand(5));
         list.add(new Operand(4));
         list.add(new Operand(-3));
@@ -89,13 +89,10 @@ class CalculatorTest {
     }
 
     @Test
-    void testThrowsException() throws MalformedParametersException
+    void testThrowsException() throws MalformedException
     {
-        Assertions.assertThrows(MalformedParametersException.class,()->
+        Assertions.assertThrows(MalformedException.class,()->
         {
-            list.add(new Operand(2));
-            list.add(new Operand(-0));
-            list.add(new Operator(Operation.DIVISION));
             int result = client.evaluateExpression(list);
         });
     }

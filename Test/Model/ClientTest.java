@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientTest {
 
     @Test
-    void evaluateExpression() {
+    void evaluateExpression() throws MalformedException {
         Client client = new Client();
         ArrayList<Token> tokens = new ArrayList<>();
         tokens.add(new Operand(6));

@@ -1,8 +1,9 @@
 package Interfaces;
 
-import java.lang.reflect.MalformedParametersException;
+
+import Model.MalformedException;
 
 public interface Calculator
 {
-  int getResult() throws MalformedParametersException;
+  int getResult() throws MalformedException;
 }

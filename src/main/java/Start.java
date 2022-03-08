@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 public class Start
 {
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) throws MalformedException {
     test1();
     test2();
     test3();
     test4();
   }
 
-  private static void test4()
-  {
+  private static void test4() throws MalformedException {
     Client client = new Client();
     ArrayList<Token> tokens = new ArrayList<>();
     tokens.add(new Operand(5));
@@ -27,8 +25,7 @@ public class Start
 
   }
 
-  private static void test3()
-  {
+  private static void test3() throws MalformedException {
     Client client = new Client();
     ArrayList<Token> tokens = new ArrayList<>();
     tokens.add(new Operand(6));
@@ -40,8 +37,7 @@ public class Start
 
   }
 
-  private static void test2()
-  {
+  private static void test2() throws MalformedException {
     Client client = new Client();
     ArrayList<Token> tokens = new ArrayList<>();
     tokens.add(new Operand(5));
@@ -52,8 +48,7 @@ public class Start
     System.out.println(client.evaluateExpression(tokens));
   }
 
-  private static void test1()
-  {
+  private static void test1() throws MalformedException {
     Client client = new Client();
     ArrayList<Token> tokens = new ArrayList<>();
     tokens.add(new Operand(2));

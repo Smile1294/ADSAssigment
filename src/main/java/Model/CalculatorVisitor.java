@@ -4,6 +4,7 @@ import Interfaces.Calculator;
 import Interfaces.Visitor;
 
 import java.lang.reflect.MalformedParametersException;
+import java.util.EmptyStackException;
 
 public class CalculatorVisitor implements Visitor, Calculator
 {
@@ -14,9 +15,14 @@ public class CalculatorVisitor implements Visitor, Calculator
     this.tokenStack = new LinkedStack<>();
   }
 
-  @Override public int getResult() throws MalformedParametersException
-  {
-    return ((Operand) tokenStack.pop()).getValue();
+  @Override public int getResult() throws MalformedException {
+    try {
+      return ((Operand) tokenStack.pop()).getValue();
+    }
+    catch (EmptyStackException e)
+    {
+      throw new MalformedException();
+    }
   }
 
   @Override public void visit(Operand operand)
