@@ -1,9 +1,13 @@
 package Interfaces;
 
 import Model.LinkedList;
+import Model.LinkedStack;
 import Model.Node;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
+
+import java.util.EmptyStackException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,5 +42,14 @@ class ListTest<T>{
         T data = null;
         list.addToFront(data);
         list.removeFirst();
+    }
+    @Test
+    void popExpectedException() throws EmptyStackException
+    {
+        Assertions.assertThrows(EmptyStackException.class,()->
+        {
+            List<T> list = new LinkedList<T>();
+            list.removeFirst();
+        });
     }
 }

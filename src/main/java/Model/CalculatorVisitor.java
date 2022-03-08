@@ -52,8 +52,8 @@ public class CalculatorVisitor implements Visitor, Calculator
         break;
       case DIVISION:
         System.out.println(
-            (operand1.getValue() + "/" + operand2.getValue()));
-        pushOperand(new Operand(operand1.getValue() /operand2.getValue()));
+            (operand2.getValue() + "/" + operand1.getValue()));
+        pushOperand(new Operand(operand2.getValue()/operand1.getValue() ));
         break;
       case MULTIPLICATION:
         System.out.println(

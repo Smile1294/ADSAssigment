@@ -1,7 +1,10 @@
 package Interfaces;
 
 import Model.LinkedStack;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.EmptyStackException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,5 +34,14 @@ class StackTest {
         stack.pop();
         System.out.println(stack + " Stack has poped item out");
         assertTrue(stack.isEmpty());
+    }
+    @Test
+    void popExpectedException() throws EmptyStackException
+    {
+        Assertions.assertThrows(EmptyStackException.class,()->
+        {
+            Stack<Integer> stack = new LinkedStack<Integer>();
+            stack.pop();
+        });
     }
 }
